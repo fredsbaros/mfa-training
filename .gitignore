@@ -3,3 +3,7 @@ node_modules/
 local.settings.json
 .vscode/
 *.log
+
+# SDD scratch
+.superpowers/
+scratch_*

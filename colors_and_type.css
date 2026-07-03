@@ -1,0 +1,297 @@
+/* ============================================================
+   1st Staff — Colors & Type
+   Source of truth for visual foundations.
+   Import in any design surface: <link rel="stylesheet" href="../colors_and_type.css">
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+/* Supreme by Indian Type Foundry / Fontshare. Variable + static cuts shipped. */
+
+@font-face {
+  font-family: "Supreme";
+  src: url("./fonts/Supreme-Variable.woff2") format("woff2-variations"),
+       url("./fonts/Supreme-Variable.woff") format("woff");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Supreme";
+  src: url("./fonts/Supreme-VariableItalic.woff2") format("woff2-variations"),
+       url("./fonts/Supreme-VariableItalic.woff") format("woff");
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+}
+/* Static fallbacks for engines that ignore variable axes */
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; font-display: swap; }
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Italic.woff2") format("woff2"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Medium.woff2") format("woff2"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Supreme"; src: url("./fonts/Supreme-Extrabold.woff2") format("woff2"); font-weight: 800; font-style: normal; font-display: swap; }
+
+:root {
+  /* ---------- Brand red ---------- */
+  /* Primary brand red. Use sparingly — for headlines, single CTAs, marks of authority. */
+  --brand-red:        #E71C22;       /* Brand exact spec */
+  --brand-red-ink:    #B91319;       /* Hover / pressed */
+  --brand-red-deep:   #82171E;       /* Racing Red 700 — gravitas on dark sections */
+  --brand-red-tint:   #FDE8E9;       /* Surface tint, alerts */
+  --brand-red-soft:   #F5A3A5;       /* Decorative shapes, swooshes */
+
+
+
+  /* Racing Red scale (brand red — for highlights) */
+  --color-racing-red-50:  #fde8e9;
+  --color-racing-red-100: #fad1d2;
+  --color-racing-red-200: #f5a3a5;
+  --color-racing-red-300: #f07579;
+  --color-racing-red-400: #ec464c;
+  --color-racing-red-500: #e7181f;
+  --color-racing-red-600: #b91319;
+  --color-racing-red-700: #8a0f13;
+  --color-racing-red-800: #5c0a0c;
+  --color-racing-red-900: #2e0506;
+  --color-racing-red-950: #200304;
+
+  /* ---------- Warm neutrals ---------- */
+  /* Mauve Bark — primary warm neutral. Backgrounds, text on light. */
+  --color-mauve-bark-50:  #f4f1f0;
+  --color-mauve-bark-100: #eae3e1;
+  --color-mauve-bark-200: #d4c7c4;
+  --color-mauve-bark-300: #bfaaa6;
+  --color-mauve-bark-400: #a98e89;
+  --color-mauve-bark-500: #94726b;
+  --color-mauve-bark-600: #765b56;
+  --color-mauve-bark-700: #594440;
+  --color-mauve-bark-800: #3b2e2b;
+  --color-mauve-bark-900: #1e1715;
+  --color-mauve-bark-950: #15100f;
+
+
+  /* ---------- Cool grey ---------- */
+  /* Slight blue cast — clinical, technical. Good for data-heavy internal apps. */
+  --color-cool-grey-50:  #f8fafc;
+  --color-cool-grey-100: #f1f5f9;
+  --color-cool-grey-200: #e2e8f0;
+  --color-cool-grey-300: #cbd5e1;
+  --color-cool-grey-400: #94a3b8;
+  --color-cool-grey-500: #64748b;
+  --color-cool-grey-600: #475569;
+  --color-cool-grey-700: #334155;
+  --color-cool-grey-800: #1e293b;
+  --color-cool-grey-900: #0f172a;
+  --color-cool-grey-950: #020617;
+
+  /* ---------- Accents ---------- */
+  --color-stormy-teal-500: #1ddee2;     /* "Therapeutic" accent — calm */
+  --color-stormy-teal-600: #17b2b5;
+  --color-stormy-teal-700: #128587;
+  --color-stormy-teal-800: #0c595a;
+
+  --color-light-gold-300:  #f2d473;     /* "Success / achievement" accent */
+  --color-light-gold-400:  #eec644;
+  --color-light-gold-500:  #e9b816;
+  --color-light-gold-700:  #8c6e0d;
+
+  --color-strong-cyan-500: #00f2ff;     /* Loud accent — use rarely */
+  --color-porcelain-500:   #55ff00;     /* Loud accent — use rarely */
+
+  /* ---------- Semantic surface tokens ---------- */
+  --bg:               #FAF6F4;            /* page bg, warm off-white */
+  --bg-alt:           #F4EFEC;            /* alternating section bg */
+  --bg-cream:         #FBF7F4;            /* hero/feature warm bg */
+  --bg-deep:          #1E1715;            /* near-black dark sections (mauve-bark-900) */
+  --bg-red:           var(--brand-red);   /* hero band / red splash */
+  --surface:          #FFFFFF;
+  --surface-warm:     #F8F2EF;
+  --surface-overlay:  rgba(30, 23, 21, .60);
+
+  /* Foreground / text */
+  --fg-1:             #1E1715;            /* body & headings */
+  --fg-2:             #3B2E2B;            /* secondary body */
+  --fg-3:             #765B56;            /* muted, captions */
+  --fg-4:             #A98E89;            /* placeholder, disabled */
+  --fg-on-red:        #FFFFFF;
+  --fg-on-deep:       #FAF6F4;
+  --fg-link:          var(--brand-red);
+
+  /* Borders & dividers */
+  --border:           #EAE3E1;
+  --border-strong:    #D4C7C4;
+  --border-on-deep:   rgba(255, 255, 255, .12);
+
+  /* Status (semantic) */
+  --success:          #00955E;           /* fresh green — confident growth */
+  --warning:          #EEC644;           /* light gold 400 */
+  --danger:           var(--brand-red);
+  --info:             #12BAEE;           /* refreshed — bright cyan */
+
+  /* ---------- Type ---------- */
+  --font-sans:        "Supreme", "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display:     "Supreme", "Inter", system-ui, sans-serif;   /* same family, heavier weights */
+  --font-mono:        ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+
+  /* Modular type scale — 1.2 (minor third) — for ample, comfortable reading */
+  --fs-12: 12px;
+  --fs-14: 14px;
+  --fs-16: 16px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-24: 24px;
+  --fs-30: 30px;
+  --fs-36: 36px;
+  --fs-44: 44px;
+  --fs-56: 56px;
+  --fs-72: 72px;
+  --fs-96: 96px;
+
+  /* Line heights */
+  --lh-tight:   1.06;   /* @kind other */
+  --lh-snug:    1.18;   /* @kind other */
+  --lh-normal:  1.45;   /* @kind other */
+  --lh-relaxed: 1.6;    /* @kind other */
+
+  /* Tracking */
+  --ls-display: -0.02em;
+  --ls-tight:   -0.01em;
+  --ls-normal:    0em;
+  --ls-eyebrow: 0.12em;
+
+  /* ---------- Spacing (4pt grid) ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* ---------- Radii ---------- */
+  --r-xs:   4px;
+  --r-sm:   8px;
+  --r-md:   12px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-2xl:  40px;
+  --r-pill: 999px;
+
+  /* ---------- Shadows ---------- */
+  /* Subtle, neutral-gray. Built around the reference: rgba(99, 99, 99, .2) 0 2px 8px. */
+  --shadow-xs:  rgba(99, 99, 99, 0.08) 0px 1px 2px 0px;
+  --shadow-sm:  rgba(99, 99, 99, 0.12) 0px 1px 4px 0px;
+  --shadow-md:  rgba(99, 99, 99, 0.2)  0px 2px 8px 0px;
+  --shadow-lg:  rgba(99, 99, 99, 0.22) 0px 6px 18px 0px;
+  --shadow-red: rgba(231, 28, 34, 0.18) 0px 6px 16px 0px;
+
+  /* ---------- Motion ---------- */
+  --ease-out:    cubic-bezier(.22, 1, .36, 1); /* @kind other */
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1); /* @kind other */
+  --dur-xs: 120ms; /* @kind other */
+  --dur-sm: 200ms; /* @kind other */
+  --dur-md: 320ms; /* @kind other */
+  --dur-lg: 520ms; /* @kind other */
+}
+
+/* ============================================================
+   Element-level defaults — use as base for any surface that
+   imports this file.
+   ============================================================ */
+
+html, body {
+  font-family: var(--font-sans);
+  color: var(--fg-1);
+  background: var(--bg);
+  font-size: 16px;
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display + heading roles */
+.t-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(var(--fs-56), 7vw, var(--fs-96));
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--fg-1);
+}
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--fs-56);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-36);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-24);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+}
+.t-h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-20);
+  line-height: var(--lh-snug);
+}
+.t-eyebrow {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: var(--fs-12);
+  line-height: 1;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-red);
+}
+.t-body-lg {
+  font-size: var(--fs-20);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+}
+.t-body {
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+.t-caption {
+  font-size: var(--fs-14);
+  line-height: var(--lh-normal);
+  color: var(--fg-3);
+}
+.t-overline {
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-3);
+  font-weight: 600;
+}
+.t-quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: var(--fs-30);
+  line-height: var(--lh-snug);
+  color: var(--fg-1);
+}
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-14);
+}
