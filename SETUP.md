@@ -5,8 +5,8 @@ This app runs on the **Free** plan. Because Free has no custom auth provider or
 function using an **app-only** Microsoft Graph call. The training HTML is served
 only by that function — it is **not** a public static file.
 
-Replace every `<PLACEHOLDER>` in the repo before/at deploy time:
-`<SEC_SALES_OBJECT_ID>`, `<SEC_MANAGEMENT_OBJECT_ID>`, `<SUPPORT_EMAIL>`, `<SWA_HOST>`.
+The group Object IDs are already filled in `api/GetTraining/index.js`. The only
+remaining placeholder is `<SWA_HOST>` (your app URL, known after step 2).
 (`TENANT_ID`, `GRAPH_CLIENT_ID`, `GRAPH_CLIENT_SECRET` are set as app settings, not in files.)
 
 ## 1. Push to GitHub

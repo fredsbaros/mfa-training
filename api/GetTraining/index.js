@@ -21,8 +21,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ALLOWED_GROUP_IDS = [
-  '<SEC_SALES_OBJECT_ID>',
-  '<SEC_MANAGEMENT_OBJECT_ID>'
+  '39b7dce4-d032-4975-b38e-6241714e775d', // Sec_Sales
+  '414e4ac5-ed8e-49ed-bba6-f8787784206e'  // Sec_Management
 ];
 
 const TRAINING_FILE = path.join(__dirname, 'content', 'training.html');
