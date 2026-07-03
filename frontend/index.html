@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>1st Staff — Training Sign In</title>
+  <style>
+    :root { --bg:#FBF7F4; --red:#E71C22; --ink:#1E1715; }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { background:var(--bg); color:var(--ink); min-height:100vh; display:flex;
+      align-items:center; justify-content:center; padding:24px;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    .card { background:#fff; border-radius:16px; padding:48px 40px; max-width:420px; width:100%;
+      box-shadow:0 8px 30px rgba(30,23,21,.10); text-align:center; }
+    .logo { display:inline-flex; align-items:center; gap:10px; margin-bottom:28px; }
+    .logo svg { display:block; }
+    .logo .word { font-weight:800; font-size:22px; letter-spacing:-.5px; color:var(--ink); }
+    .logo .word span { color:var(--red); }
+    h1 { font-size:20px; font-weight:700; margin-bottom:10px; }
+    p { font-size:15px; line-height:1.5; color:#5c534f; margin-bottom:28px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      width:100%; padding:14px 20px; background:var(--red); color:#fff; border:none;
+      border-radius:10px; font-size:16px; font-weight:600; text-decoration:none; cursor:pointer;
+      transition:filter .15s; }
+    .btn:hover { filter:brightness(.92); }
+    .note { margin-top:22px; font-size:13px; color:#8a807b; }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">
+      <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <rect width="34" height="34" rx="8" fill="#E71C22"></rect>
+        <text x="17" y="23" text-anchor="middle" font-family="sans-serif" font-weight="800"
+          font-size="16" fill="#fff">1</text>
+      </svg>
+      <span class="word">1st <span>Staff</span></span>
+    </div>
+    <h1>Sales &amp; Management Training</h1>
+    <p>Access is restricted to authorised staff. Sign in with your 1st Staff Microsoft account to continue.</p>
+    <a class="btn" href="/.auth/login/aad?post_login_redirect_uri=/training.html">
+      <svg width="18" height="18" viewBox="0 0 23 23" aria-hidden="true">
+        <rect x="1"  y="1"  width="10" height="10" fill="#fff"></rect>
+        <rect x="12" y="1"  width="10" height="10" fill="#fff" opacity=".85"></rect>
+        <rect x="1"  y="12" width="10" height="10" fill="#fff" opacity=".85"></rect>
+        <rect x="12" y="12" width="10" height="10" fill="#fff" opacity=".7"></rect>
+      </svg>
+      Sign in with Microsoft
+    </a>
+    <p class="note">Trouble signing in? Contact <a href="mailto:<SUPPORT_EMAIL>"><SUPPORT_EMAIL></a></p>
+  </main>
+</body>
+</html>
