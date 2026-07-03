@@ -1,7 +1,7 @@
 # Setup — 1st Staff gated training on Azure Static Web Apps
 
 Replace every `<PLACEHOLDER>` in the repo before/at deploy time:
-`<YOUR_ENTRA_TENANT_ID>`, `<SEC_SALES_OBJECT_ID>`, `<SEC_MANAGEMENT_OBJECT_ID>`, `<SUPPORT_EMAIL>`.
+`<YOUR_ENTRA_TENANT_ID>`, `<SEC_SALES_OBJECT_ID>`, `<SEC_MANAGEMENT_OBJECT_ID>`, `<SUPPORT_EMAIL>`, `<SWA_HOST>`.
 
 ## 1. Push to GitHub
 Create a new **private** GitHub repo and push this project's `main` branch.
