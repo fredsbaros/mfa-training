@@ -1,0 +1,37 @@
+{
+  "auth": {
+    "rolesSource": "/api/GetRoles",
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/<YOUR_ENTRA_TENANT_ID>/v2.0",
+          "clientIdSettingName": "ENTRA_CLIENT_ID",
+          "clientSecretSettingName": "ENTRA_CLIENT_SECRET"
+        },
+        "login": {
+          "loginParameters": ["resource=https://graph.microsoft.com"]
+        }
+      }
+    }
+  },
+  "routes": [
+    { "route": "/.auth/login/github", "statusCode": 404 },
+    { "route": "/training.html", "allowedRoles": ["training"] },
+    { "route": "/", "allowedRoles": ["anonymous", "authenticated"] },
+    { "route": "/index.html", "allowedRoles": ["anonymous", "authenticated"] },
+    { "route": "/denied.html", "allowedRoles": ["anonymous", "authenticated"] },
+    { "route": "/robots.txt", "allowedRoles": ["anonymous", "authenticated"] }
+  ],
+  "responseOverrides": {
+    "401": { "statusCode": 302, "redirect": "/.auth/login/aad?post_login_redirect_uri=/training.html" },
+    "403": { "rewrite": "/denied.html" }
+  },
+  "globalHeaders": {
+    "X-Robots-Tag": "noindex, nofollow"
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html",
+    "exclude": ["/training.html", "/denied.html", "/robots.txt", "/.auth/*"]
+  }
+}
