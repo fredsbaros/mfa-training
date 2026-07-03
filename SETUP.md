@@ -26,16 +26,21 @@ The `ALLOWED_GROUP_IDS` array in `api/GetTraining/index.js` is already populated
 with the `Sec_Sales` and `Sec_Management` Object IDs. Update it only if the groups change.
 
 ## 4. App registration (app-only Graph)
+This registration is used **only** by the `GetTraining` function to call Graph as an
+application. It is **not** the sign-in app (Free-plan sign-in uses SWA's built-in
+provider), so it needs no redirect URI and no ID-token settings.
+
 Entra ID → App registrations → New registration.
 - Name: `1st Staff Training SWA`.
 - Supported account types: **Accounts in this organizational directory only**.
-- Redirect URI (Web): `https://<SWA_HOST>/.auth/login/aad/callback`.
+- Redirect URI: **leave blank**.
 - After creation copy **Application (client) ID** (`GRAPH_CLIENT_ID`) and
   **Directory (tenant) ID** (`TENANT_ID`).
 - Certificates & secrets → New client secret → copy the **Value** (`GRAPH_CLIENT_SECRET`).
 - API permissions → Add a permission → Microsoft Graph → **Application permissions** →
   **GroupMember.Read.All** → Add → **Grant admin consent** for your tenant.
   (Application permission — not Delegated. Admin consent is required.)
+- Remove the default delegated **User.Read** permission if present — it isn't used.
 
 > Note on sign-in: the Free plan uses the **preconfigured** Entra provider, which
 > accepts any Microsoft account. Non-members (including other tenants) are rejected
