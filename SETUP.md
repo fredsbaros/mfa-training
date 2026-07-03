@@ -21,10 +21,9 @@ Azure adds the `AZURE_STATIC_WEB_APPS_API_TOKEN` secret and a workflow; keep thi
 workflow (delete Azure's duplicate under `.github/workflows/` if one is generated).
 After the first deploy, copy the app **URL** → this is `<SWA_HOST>`.
 
-## 3. Get the group Object IDs
-Entra ID → Groups → open `Sec_Sales`, copy **Object Id** → `<SEC_SALES_OBJECT_ID>`.
-Repeat for `Sec_Management` → `<SEC_MANAGEMENT_OBJECT_ID>`. Paste both into
-`api/GetTraining/index.js` (the `ALLOWED_GROUP_IDS` array).
+## 3. Group Object IDs (already set)
+The `ALLOWED_GROUP_IDS` array in `api/GetTraining/index.js` is already populated
+with the `Sec_Sales` and `Sec_Management` Object IDs. Update it only if the groups change.
 
 ## 4. App registration (app-only Graph)
 Entra ID → App registrations → New registration.
@@ -50,9 +49,9 @@ Azure Portal → your Static Web App → Settings → Environment variables, add
 - `GRAPH_CLIENT_SECRET` = client secret value
 Save. (Names must match exactly — see `api/GetTraining/index.js`.)
 
-## 6. Fill placeholders and push
-Set the two group IDs in `api/GetTraining/index.js` and `<SUPPORT_EMAIL>` in
-`frontend/index.html` / `frontend/denied.html`. Commit and push; the GitHub Action redeploys.
+## 6. Redeploy
+No file placeholders remain (group IDs are already set; there is no support email).
+The app settings from step 5 take effect on save; push any further changes to redeploy.
 
 ## 7. Verify
 - Anonymous visit to `/` → branded login page; protected routes redirect to Microsoft sign-in.
