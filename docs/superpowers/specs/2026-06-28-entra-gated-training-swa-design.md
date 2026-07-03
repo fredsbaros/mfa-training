@@ -2,7 +2,17 @@
 
 **Date:** 2026-06-28
 **Author:** Fred (1st Staff)
-**Status:** Approved design — pending implementation plan
+**Status:** Refactored 2026-07-03 for the **Free plan**.
+
+> **Update (2026-07-03):** Moved from Standard to the **Free** plan. Free has no
+> custom auth provider and no `rolesSource`, so the original design (custom
+> single-tenant provider + `GetRoles` role mapping) does not apply. Group
+> membership is now enforced inside a managed function (`api/GetTraining`) using
+> an **app-only** Microsoft Graph `checkMemberGroups` call, and the training HTML
+> is served only by that function (never a public static file). The site is gated
+> to `authenticated`; non-members are redirected to `/denied.html`, which also
+> enforces the tenant restriction by membership. Sections below describe the
+> superseded Standard design — see `SETUP.md` for the current Free-plan setup.
 
 ## Goal
 
