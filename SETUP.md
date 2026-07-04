@@ -38,8 +38,12 @@ Entra ID → App registrations → New registration.
   **Directory (tenant) ID** (`TENANT_ID`).
 - Certificates & secrets → New client secret → copy the **Value** (`GRAPH_CLIENT_SECRET`).
 - API permissions → Add a permission → Microsoft Graph → **Application permissions** →
-  **GroupMember.Read.All** → Add → **Grant admin consent** for your tenant.
-  (Application permission — not Delegated. Admin consent is required.)
+  add **both** **`GroupMember.Read.All`** and **`User.ReadBasic.All`** → Add →
+  **Grant admin consent** for your tenant.
+  (Application permissions — not Delegated. Both are required: reading another
+  user's group membership via `/users/{id}/checkMemberGroups` needs a user-read
+  permission alongside the group one. Alternatively grant the single broader
+  **`Directory.Read.All`** instead of the two.)
 - Remove the default delegated **User.Read** permission if present — it isn't used.
 
 > Note on sign-in: the Free plan uses the **preconfigured** Entra provider, which

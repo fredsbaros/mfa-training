@@ -2,7 +2,6 @@
   "routes": [
     { "route": "/.auth/login/github", "statusCode": 404 },
     { "route": "/api/training", "allowedRoles": ["authenticated"] },
-    { "route": "/api/whoami", "allowedRoles": ["authenticated"] },
     { "route": "/", "allowedRoles": ["anonymous", "authenticated"] },
     { "route": "/index.html", "allowedRoles": ["anonymous", "authenticated"] },
     { "route": "/denied.html", "allowedRoles": ["anonymous", "authenticated"] },
