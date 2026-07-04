@@ -41,7 +41,7 @@
     </div>
     <h1>Sales Team Training</h1>
     <p>Please sign in to continue.</p>
-    <a class="btn" href="/.auth/login/aad?post_login_redirect_uri=/api/training">
+    <a class="btn" id="signin" href="/.auth/login/aad?post_login_redirect_uri=/api/training">
       <svg width="18" height="18" viewBox="0 0 23 23" aria-hidden="true">
         <rect x="1"  y="1"  width="10" height="10" fill="#fff"></rect>
         <rect x="12" y="1"  width="10" height="10" fill="#fff" opacity=".85"></rect>
@@ -52,5 +52,17 @@
     </a>
     <p class="note">For authorised Sales and Management staff.</p>
   </main>
+  <script>
+    // SWA requires a fully-qualified post_login_redirect_uri for the automatic
+    // post-sign-in redirect to work; a relative path leaves the user on the
+    // "Click here if it doesn't automatically redirect" fallback page.
+    (function () {
+      var a = document.getElementById('signin');
+      if (a) {
+        var target = window.location.origin + '/api/training';
+        a.href = '/.auth/login/aad?post_login_redirect_uri=' + encodeURIComponent(target);
+      }
+    })();
+  </script>
 </body>
 </html>
