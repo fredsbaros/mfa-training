@@ -90,15 +90,18 @@ module.exports = async function (context, req) {
       context.res = { status: 302, headers: { Location: '/denied.html' } };
       return;
     }
-    const html = fs.readFileSync(TRAINING_FILE, 'utf8');
+    // TEMP DEBUG: bisect whether the failure is in serving the large file.
+    let fileInfo;
+    try {
+      const stat = fs.statSync(TRAINING_FILE);
+      fileInfo = `found, ${stat.size} bytes`;
+    } catch (e) {
+      fileInfo = `NOT FOUND at ${TRAINING_FILE} (${e.code || e.message})`;
+    }
     context.res = {
       status: 200,
-      headers: {
-        'Content-Type': 'text/html; charset=utf-8',
-        'Cache-Control': 'no-store',
-        'X-Robots-Tag': 'noindex, nofollow'
-      },
-      body: html
+      headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' },
+      body: `<!doctype html><meta name="robots" content="noindex, nofollow"><h1>Access granted (debug)</h1><p>Membership check passed.</p><p>Training file: ${fileInfo}</p>`
     };
   } catch (err) {
     context.log('GetTraining error:', err);
